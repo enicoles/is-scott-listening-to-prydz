@@ -28,11 +28,13 @@ class ScrobbleService
     public function checkPrydz()
     {
         $tracks = $this->scrobbleClient->getRecentTracks();
-        $prydzTrack = $this->getPrydzTrack($tracks);
+        $prydzTrackDetails = $this->getPrydzTrack($tracks);
 
-        if($prydzTrack) {
-            dd($prydzTrack);
+        if($prydzTrackDetails) {
+            return view('prydz-before', $prydzTrackDetails); // return prydz view
         }
+
+        // return non prydz view
     }
 
     private function getPrydzTrack(array $tracks)
@@ -42,10 +44,14 @@ class ScrobbleService
             $title = strtolower(array_get($track, self::KEY_TITLE));
             $album = strtolower(array_get($track, self::KEY_ALBUM));
 
-            $trackDetails = array($artist, $title, $album);
+            $trackDetails = array(
+                'artist' => $artist,
+                'title' => $title,
+                'album' => $album
+            );
 
             if($this->doTrackDetailsHavePrydz($trackDetails)){
-                return $track;
+                return $trackDetails;
             }
         }
         return false;
@@ -55,7 +61,7 @@ class ScrobbleService
     {
         $prydzIds = ['prydz', 'pryda', 'cirez d'];
 
-        foreach($trackDetails as $trackDetail) {
+        foreach($trackDetails as $key => $trackDetail) {
             foreach($prydzIds as $prydzId) {
                 if(str_contains($trackDetail, $prydzId)) {
                     return true;

@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
+        <title>Is Scott Listening to Prydz?</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet" type="text/css">
@@ -12,13 +12,8 @@
 
     </head>
     <body>
-        <div class="flex-center position-ref full-height">
-
-            <div class="content">
-                <div class="title m-b-md">
-                    Is Scott Listening To Prydz?
-                </div>
-            </div>
-        </div>
+        <main class="py-4">
+            @yield('content')
+        </main>
     </body>
 </html>
