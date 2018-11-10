@@ -16,6 +16,6 @@ class HomeController extends Controller
 
     public function show()
     {
-        $this->scrobbleService->isPrydz();
+        $this->scrobbleService->checkPrydz();
     }
 }

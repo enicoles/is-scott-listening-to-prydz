@@ -8,7 +8,8 @@ use RuntimeException;
 class ScrobbleClient
 {
     const VAR_GET_RECENT_TRACKS_METHOD = 'user.getrecenttracks';
-    const VAR_LAST_FM_USER = 'rumplesnelson';
+    const VAR_LAST_FM_USER = 'enicoles';
+    const API_KEY_RECENT_TRACKS = 'recenttracks.track';
 
     /** @var ApiClient */
     private $client;
@@ -23,7 +24,7 @@ class ScrobbleClient
 
 
     /**
-     * @return \Psr\Http\Message\ResponseInterface
+     * @return array
      */
     public function getRecentTracks()
     {
@@ -38,8 +39,9 @@ class ScrobbleClient
             throw new RuntimeException($exception->getMessage());
         }
 
-        dd(json_decode($response->getBody()->getContents(), true));
+        $response = json_decode($response->getBody()->getContents(), true);
+        $recentTracks = array_get($response, self::API_KEY_RECENT_TRACKS);
 
-        return $response;
+        return $recentTracks;
     }
 }
