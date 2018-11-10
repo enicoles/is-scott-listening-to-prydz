@@ -8,9 +8,6 @@
                     <div class="card-header">Is Scott Listening to Prydz?</div>
                     <h2>No Prydz/h2>
                     <div class="card-body">
-                        Artist {{ $artist }}<br>
-                        Title {{ $title }}<br>
-                        Album {{ $album }}
                     </div>
                 </div>
             </div>

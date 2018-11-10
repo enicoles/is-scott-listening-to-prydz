@@ -8,9 +8,10 @@
                     <div class="card-header">Is Scott Listening to Prydz?</div>
                     <h2>Prydz Before</h2>
                     <div class="card-body">
-                        Artist {{ $artist }}<br>
-                        Title {{ $title }}<br>
-                        Album {{ $album }}
+                        Artist: {{ $artist }}<br>
+                        Title: {{ $title }}<br>
+                        Album: {{ $album }}
+                        Last Played on: {{ $lastPlayed }}
                     </div>
                 </div>
             </div>
