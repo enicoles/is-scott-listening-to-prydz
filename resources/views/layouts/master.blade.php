@@ -12,8 +12,16 @@
 
     </head>
     <body>
-        <main class="py-4">
-            @yield('content')
-        </main>
+        <div class="container">
+            <div class="row full-height">
+                <div class="col-8 offset-2 align-self-center">
+                    <h1 class="text-center">Is Scott Listening to Prydz?</h1>
+                    <br>
+                    <div id="song-details" class="jumbotron">
+                        @yield('content')
+                    </div>
+                </div>
+            </div>
+        </div>
     </body>
 </html>

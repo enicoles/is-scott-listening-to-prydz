@@ -1,19 +1,16 @@
 @extends('layouts.master')
 
 @section('content')
-    <div class="container">
-        <div class="row">
-            <div class="col-md-9">
-                <div class="card">
-                    <div class="card-header">Is Scott Listening to Prydz?</div>
-                    <h2>Prydz Now</h2>
-                    <div class="card-body">
-                        Artist {{ $artist }}<br>
-                        Title {{ $title }}<br>
-                        Album {{ $album }}
-                    </div>
-                </div>
-            </div>
+    <div class="row">
+        <div class="col-7">
+            <h5>He sure is!</h5>
+            <br>
+            <h3>Title: <a href="{{ $url }}" target="_blank">{{ $title }}</a></h3>
+            <h3>Artist: {{ $artist }}</h3>
+            <h3>Album: {{ $album }}</h3>
+        </div>
+        <div class="col-4 offset-1">
+            <a href="{{ $url }}"><img src="{{ $img }}"></a>
         </div>
     </div>
 @endsection
